@@ -18,9 +18,13 @@
   - Existing agent-based transport simulations such as MATSim are widely used to represent traveler behavior and system dynamics (Horni et al., 2016). while they provided detailed behavioral patterns, these models require complex data preparation and calibration processes.
   - Public transport networks are often represented using GTFS data, which must be converted into MATSim-compatible formats, a technically demanding process for users with limited experience (Roth et al., 2019; Ziemke et al., 2021).
 - Problem Focus
-  - How can the integration of a private shuttle service (e.g., Micron Shuttle) within an existing GTFS-based public transport system be effectively simulated and analyzed using MATSim?
+  - How can the integration of a private shuttle service within an existing GTFS-based public transport system be effectively simulated and analyzed using MATSim?
   - How can scenario results be interpreted in terms of accessibility, equity, and system performance within an agent-based modeling framework?
  
 **Research Gap**
+- Most studies using MATSim focus on simulation behavior, but not on systematic integration of GTFS data as a representation of real public transport operations. There is a lack of clear workflow on how GTFS-based routes and timetables can be accurately transformed into MATSim’s network and schedule formats without information loss.
+- MATSim, while effective in simulating agent-based travel behavior, relies on static plans and preset rules that limit its ability to reflect real-time changes and dynamic variations in transport systems, creating gaps in adaptiveness and realism due to its dependence on pre-collected data and scenario-based simulations (Huang et al, 2022)
 
-- 
+**Points to Clarify**
+1. The key challenges that I should anticipate when converting GTFS data into MATSim formats, and how might these impact the realism of my model?
+2. For adaptiveness, since I am not sure if my research will involve dynamic travel behavior or real-time changes, how should I discuss the possible limitations of MATSim in representing changes or variations in travel patterns? 
