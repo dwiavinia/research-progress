@@ -1,8 +1,53 @@
-- Research Goal
-  - To evaluate how integrating the private shuttle services with the public transport system affects both network efficiency and traveler behavior, and to assess its policy feasibility as a sustainable strategy for improving urban mobility and service accessibility.
-- Sub-Goals
-- Research Questions
-- Data
-- Methodology
-- Scenario Designs
+**Research Goal**
+To evaluate how integrating private shuttle services with the public transport system affects both network efficiency and traveler behavior, and to assess its policy feasibility as a sustainable strategy for improving urban mobility and service accessibility.
+
+**Sub-Goals**
+- Data & Network Preparation
+  To combine GTFS feeds of public bus and private shuttle into a unified, MATSim-compatible network representing the current   and integrated systems.
+- Behavioral Analysis
+  To analyze how travelers (agents) adapt their route and mode choices when shuttle access, fares, and capacity are modified under policy-driven integration scenarios.
+- Efficiency Evaluation
+  To measure changes in total system travel time, congestion, and vehicle utilization after the integration of shuttle and bus services.
+- Policy Assessment
+  To interpret simulation results as policy evidence—evaluating whether shuttle–bus integration can serve as an effective, balanced solution for first–last mile connectivity and spatial accessibility.
+
+**Research Question**
+- How do travelers adapt their route and mode choices when shuttle access and fares change?
+- To what extent does integration reduce travel time and congestion?
+- Can shuttle–bus integration be considered a feasible and balanced transport policy?
+
+**Data**
+| Data Category | Description | Source / Format |
+| ---- | ---- | ---- |
+| **Public Transport Network** | GTFS feed of public bus routes, stops, trips, and schedules | Local transport agency (GTFS) |
+| **Micron Shuttle Network** | Shuttle routes, stops, and schedule (converted to GTFS format) | Micron company data / field survey |
+| **Road Network** | Street network, intersections, and coordinates | OpenStreetMap (OSM shapefile) |
+| **Population & Demand Data** | Synthetic population, OD data, or demographic distribution | Census data / generated model |
+| **Policy & Operation Parameters** | Fare, capacity, headway, transfer stops, access rules | Derived from official or assumed parameters |
+| **Spatial Reference Data (optional)** | Administrative boundaries, grid zones, land-use | GIS / statistical bureau |
+
+**Methodology**
+| Stage | Description | Key Tools / Data |
+| ---- | ---- | ---- |
+| **Data Pre-processing** | Clean and merge GTFS feeds, align schedules, define transfer stops, and convert the network into MATSim-compatible XML files. | Python (gtfs-kit / partridge), pt2matsim |
+| **Scenario Development** | Define four policy scenarios:
+• **Baseline (no integration)**
+• **Open Integration (public access)**
+• **Regulated Integration (controlled access)**
+• **Coordinated Network (long-term policy)** | MATSim configuration folders |
+| **Simulation in MATSim** | Run agent-based simulations for each scenario; allow agents to iteratively replan routes and modes until behavioral equilibrium is reached. | MATSim core modules (network, transit, population) |
+| **Indicator Extraction & Analysis** | Extract outputs to evaluate three dimensions:
+• *Efficiency:* average & total travel time, congestion level, load factor.
+• *Behavior:* mode share, number of replanning agents, executed score.
+• *Policy Impact:* service coverage, accessibility gain, cost per passenger-km. | MATSim Events & Accessibility modules, Python/R for post-processing |
+| ** Policy Interpretation** | Compare results across scenarios to assess how integration policies influence efficiency and user behavior, and to derive implications for local transport planning. | Comparative analysis, visualization (GIS, charts) |
+
+**Scenario Designs**
+| Scenario | Description | Policy Setting | Main Purpose |
+| ---- | ---- | ---- |
+| **Scenario 0 – Baseline** | Current system: shuttle serves employees only, no integration with bus network. | No policy integration. | To represent current inefficiencies and access limitations. |
+| **Scenario 1A – Open Integration** | Shuttle officially becomes part of the public network; public access allowed; unified fare. | Full policy access. | To test maximum efficiency gain and behavioral shift. |
+| **Scenario 1B – Regulated Integration** | Shuttle integrated but with fare or capacity limits; coordination with bus maintained. | Controlled policy. | To balance efficiency and fairness; avoid bus ridership loss. |
+| **Scenario 2 – Coordinated Network (Vision)** | Long-term policy scenario: full institutional cooperation, unified GTFS and scheduling. | Strategic governance. | To evaluate long-term sustainability and urban mobility improvement. |
+
 
