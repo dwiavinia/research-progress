@@ -17,37 +17,69 @@ To evaluate how integrating private shuttle services with the public transport s
 - Can shuttle–bus integration be considered a feasible and balanced transport policy?
 
 **Data**
-| Data Category | Description | Source / Format |
-| ---- | ---- | ---- |
-| **Public Transport Network** | GTFS feed of public bus routes, stops, trips, and schedules | Local transport agency (GTFS) |
-| **Micron Shuttle Network** | Shuttle routes, stops, and schedule (converted to GTFS format) | Micron company data / field survey |
-| **Road Network** | Street network, intersections, and coordinates | OpenStreetMap (OSM shapefile) |
-| **Population & Demand Data** | Synthetic population, OD data, or demographic distribution | Census data / generated model |
-| **Policy & Operation Parameters** | Fare, capacity, headway, transfer stops, access rules | Derived from official or assumed parameters |
-| **Spatial Reference Data (optional)** | Administrative boundaries, grid zones, land-use | GIS / statistical bureau |
+- Public Transport Network
+  GTFS feed of public bus routes, stops, trips, and schedules.
+  Source: Local transport agency (GTFS)
+- Private Shuttle Network
+  Shuttle routes, stops, and schedule converted to GTFS format.
+  Source: Micron company data / field survey
+- Road Network
+  Street network, intersections, and coordinates.
+  Source: OpenStreetMap (OSM shapefile)
+- Population & Demand Data
+  Synthetic population, OD data, or demographic distribution.
+  Source: Census data / generated model
+- Policy & Operation Parameters
+  Fare, capacity, headway, transfer stops, and access rules. (To be determined)
+  Source: Derived from official or assumed parameters
+- Spatial Reference Data 
+  Administrative boundaries.
+  Source: GIS 
 
 **Methodology**
-| Stage | Description | Key Tools / Data |
-| ---- | ---- | ---- |
-| **Data Pre-processing** | Clean and merge GTFS feeds, align schedules, define transfer stops, and convert the network into MATSim-compatible XML files. | Python (gtfs-kit / partridge), pt2matsim |
-| **Scenario Development** | Define four policy scenarios:
-• **Baseline (no integration)**
-• **Open Integration (public access)**
-• **Regulated Integration (controlled access)**
-• **Coordinated Network (long-term policy)** | MATSim configuration folders |
-| **Simulation in MATSim** | Run agent-based simulations for each scenario; allow agents to iteratively replan routes and modes until behavioral equilibrium is reached. | MATSim core modules (network, transit, population) |
-| **Indicator Extraction & Analysis** | Extract outputs to evaluate three dimensions:
-• *Efficiency:* average & total travel time, congestion level, load factor.
-• *Behavior:* mode share, number of replanning agents, executed score.
-• *Policy Impact:* service coverage, accessibility gain, cost per passenger-km. | MATSim Events & Accessibility modules, Python/R for post-processing |
-| ** Policy Interpretation** | Compare results across scenarios to assess how integration policies influence efficiency and user behavior, and to derive implications for local transport planning. | Comparative analysis, visualization (GIS, charts) |
+1. Data Pre-processing
+   Clean and merge GTFS feeds from public transport and private shuttle.
+   Align schedules and define transfer stops.
+   Convert the merged dataset into MATSim-compatible XML files (network.xml, transitSchedule.xml, vehicles.xml).
+   Tools: Python (gtfs-kit, partridge), pt2matsim
+2. Scenario Development
+   Define four policy scenarios:
+   - Baseline (no integration)
+   - Open Integration (public access)
+   - Regulated Integration (controlled access)
+   - Coordinated Network (long-term policy)
+   Tools: MATSim configuration folders
+3. Simulation in MATSim
+   Run agent-based simulations for each scenario.
+   Allow agents to iteratively replan routes and modes until behavioral equilibrium is reached.
+   Modules: MATSim core modules (network, transit, population)
+4. Indicator Extraction and Analysis
+   Extract outputs to evaluate three dimensions:
+   Efficiency: travel time, congestion, load factor.
+   Behavior: mode share, number of replanning agents.
+   Policy Impact: service coverage.
+   Tools: MATSim Events and Accessibility modules, Python or R for post-processing
+5. Policy Interpretation
+   Compare results across scenarios to assess how integration policies influence efficiency and user behavior.
+   Derive policy implications for local transport planning.
+   
+**Scenario Design**
+Scenario 0 – Baseline
+Current system where the Micron Shuttle serves only Micron employees, with no integration with the bus network.
+Policy Setting: No policy integration.
+Purpose: To represent current inefficiencies and access limitations.
 
-**Scenario Designs**
-| Scenario | Description | Policy Setting | Main Purpose |
-| ---- | ---- | ---- |
-| **Scenario 0 – Baseline** | Current system: shuttle serves employees only, no integration with bus network. | No policy integration. | To represent current inefficiencies and access limitations. |
-| **Scenario 1A – Open Integration** | Shuttle officially becomes part of the public network; public access allowed; unified fare. | Full policy access. | To test maximum efficiency gain and behavioral shift. |
-| **Scenario 1B – Regulated Integration** | Shuttle integrated but with fare or capacity limits; coordination with bus maintained. | Controlled policy. | To balance efficiency and fairness; avoid bus ridership loss. |
-| **Scenario 2 – Coordinated Network (Vision)** | Long-term policy scenario: full institutional cooperation, unified GTFS and scheduling. | Strategic governance. | To evaluate long-term sustainability and urban mobility improvement. |
+Scenario 1A – Open Integration
+Shuttle becomes part of the public transport system; public access allowed with a unified fare structure.
+Policy Setting: Full policy access.
+Purpose: To test maximum efficiency gain and behavioral change potential.
 
+Scenario 1B – Regulated Integration
+Shuttle integrated but with fare or capacity limits; coordinated schedule with existing buses.
+Policy Setting: Controlled policy.
+Purpose: To balance efficiency and fairness, and prevent bus ridership loss.
 
+Scenario 2 – Coordinated Network (Vision)
+Long-term policy vision where shuttle and buses operate under a unified institutional framework with integrated GTFS data and schedules.
+Policy Setting: Strategic governance.
+Purpose: To evaluate long-term sustainability and governance model for urban mobility improvement.
