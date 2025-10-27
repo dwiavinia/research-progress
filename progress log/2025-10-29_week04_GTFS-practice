@@ -1,8 +1,8 @@
-**RESEARCH CONCEPTUALIZATION**
-**Research Goal**
+RESEARCH CONCEPTUALIZATION
+Research Goal
 To evaluate how integrating private shuttle services with the public transport system affects both network efficiency and traveler behavior, and to assess its policy feasibility as a sustainable strategy for improving urban mobility and service accessibility.
 
-**Sub-Goals**
+Sub-Goals
 - Data & Network Preparation
   To combine GTFS feeds of public bus and private shuttle into a unified, MATSim-compatible network representing the current   and integrated systems.
 - Behavioral Analysis
@@ -12,12 +12,12 @@ To evaluate how integrating private shuttle services with the public transport s
 - Policy Assessment
   To interpret simulation results as policy evidence—evaluating whether shuttle–bus integration can serve as an effective, balanced solution for first–last mile connectivity and spatial accessibility.
 
-**Research Question**
+Research Question
 - How do travelers adapt their route and mode choices when shuttle access and fares change?
 - To what extent does integration reduce travel time and congestion?
 - Can shuttle–bus integration be considered a feasible and balanced transport policy?
 
-**Data**
+Data
 - Public Transport Network
   GTFS feed of public bus routes, stops, trips, and schedules.
   Source: Local transport agency (GTFS)
@@ -37,7 +37,7 @@ To evaluate how integrating private shuttle services with the public transport s
   Administrative boundaries.
   Source: GIS 
 
-**Methodology**
+Methodology
 1. Data Pre-processing
    Clean and merge GTFS feeds from public transport and private shuttle.
    Align schedules and define transfer stops.
@@ -64,7 +64,7 @@ To evaluate how integrating private shuttle services with the public transport s
    Compare results across scenarios to assess how integration policies influence efficiency and user behavior.
    Derive policy implications for local transport planning.
    
-**Scenario Design**
+Scenario Design
 Scenario 0 – Baseline
 Current system where the Micron Shuttle serves only Micron employees, with no integration with the bus network.
 Policy Setting: No policy integration.
@@ -85,7 +85,7 @@ Long-term policy vision where shuttle and buses operate under a unified institut
 Policy Setting: Strategic governance.
 Purpose: To evaluate long-term sustainability and governance model for urban mobility improvement.
 
-**CURRENT LEARNING FOCUS**
+CURRENT LEARNING FOCUS
 - GTFS Practice
 Workflow Structure
 GTFS Practice/
@@ -128,35 +128,35 @@ Workflow Structure
  
 - MATSim Simulation Practice
 Input → Configuration → Execution → Output
-**MATSim Dummy Run/**
+MATSim Dummy Run/
 │
-├── **scenarios/dummyNia/**                              # Scenario folder (custom dummy setup)
+├── scenarios/dummyNia/                                  # Scenario folder (custom dummy setup)
 │   ├── `network.xml`                                    # Minimal 3-node, 4-link test network (✅ created manually)
 │   ├── `population.xml`                                 # Single-agent plan (home–work–home, mode=car)
 │   └── `config.xml`                                     # Central configuration file (paths, controler, strategy modules)
 │
-├── **src/main/java/sandbox/**
+├── src/main/java/sandbox/
 │   └── `RunDummySimulationNia.java`                     # Main Java entry point for running the simulation
 │
-├── **pom.xml**                                          # Maven build file (manages MATSim dependencies)
+├── pom.xml                                              # Maven build file (manages MATSim dependencies)
 │
-├── **Run Configurations (IntelliJ IDEA)**
+├── Run Configurations (IntelliJ IDEA)
 │   ├── Working directory → `matsim-example-project/`    # Verified correct (defines where MATSim writes outputs)
 │   └── Main class → `sandbox.RunDummySimulationNia`     # Executes config & scenario
 │
-└── **output/**                                          # Simulation result folder (generated successfully)
+└── output/                                              # Simulation result folder (generated successfully)
 ├── `output_config.xml`                                  # Copy of final config used
 ├── `output_network.xml.gz`                              # Network used in simulation
 ├── `output_plans.xml.gz`                                # Final agent plans after iteration
 ├── `scorestats.txt`                                     # Score per iteration (stability indicator)
 ├── `travelTimes.txt`                                    # Average mode travel times
 ├── `logfile.log`                                        # Complete run log (runtime messages)
-└── **ITERS/it.0/**
+└── ITERS/it.0/
   ├── `0.events.xml.gz`                                  # All events during simulation (core for analysis)
   ├── `0.linkstats.txt.gz`                               # Link-level stats (volume, delay, travel time)
   └── `0.plans.xml.gz`                                   # Iteration 0 plans snapshot
 
-**UPCOMING LEARNING FOCUS**
+UPCOMING LEARNING FOCUS
 - Learn to interpret and analyze simulation output files (scorestats.txt, linkstats.txt.gz, events.xml.gz)
 - Visualize agent movements
 - Run experiments by modifying input parameters
