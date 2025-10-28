@@ -1,4 +1,4 @@
-RESEARCH CONCEPTUALIZATION
+**RESEARCH CONCEPTUALIZATION**
 Research Goal
 To evaluate how integrating private shuttle services with the public transport system affects both network efficiency and traveler behavior, and to assess its policy feasibility as a sustainable strategy for improving urban mobility and service accessibility.
 
@@ -85,7 +85,7 @@ Long-term policy vision where shuttle and buses operate under a unified institut
 Policy Setting: Strategic governance.
 Purpose: To evaluate long-term sustainability and governance model for urban mobility improvement.
 
-CURRENT LEARNING FOCUS
+**CURRENT LEARNING FOCUS**
 - GTFS Practice
 Workflow Structure
 GTFS Practice/
@@ -156,7 +156,7 @@ MATSim Dummy Run/
   ├── `0.linkstats.txt.gz`                               # Link-level stats (volume, delay, travel time)
   └── `0.plans.xml.gz`                                   # Iteration 0 plans snapshot
 
-UPCOMING LEARNING FOCUS
+**UPCOMING LEARNING FOCUS**
 - Learn to interpret and analyze simulation output files (scorestats.txt, linkstats.txt.gz, events.xml.gz)
 - Visualize agent movements
 - Run experiments by modifying input parameters
