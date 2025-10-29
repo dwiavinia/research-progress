@@ -23,7 +23,7 @@ Data
   Source: Local transport agency (GTFS)
 - Private Shuttle Network
   Shuttle routes, stops, and schedule converted to GTFS format.
-  Source: Micron company data / field survey
+  Source: company data / field survey
 - Road Network
   Street network, intersections, and coordinates.
   Source: OpenStreetMap (OSM shapefile)
@@ -66,7 +66,7 @@ Methodology
    
 Scenario Design
 Scenario 0 – Baseline
-Current system where the Micron Shuttle serves only Micron employees, with no integration with the bus network.
+Current system where the private shuttle serves only  employees, with no integration with the bus network.
 Policy Setting: No policy integration.
 Purpose: To represent current inefficiencies and access limitations.
 
