@@ -75,4 +75,12 @@ This paper explores how cities can finance transport infrastructure by capturing
 
 **Key Quote**
 > “It is therefore important to develop research for evaluating the most efficient and sustainable LVC to finance transport investments based on accessibility.” — *Medda (2012)*
+
 - Insight: This paper serves both as **theoretical foundation** and **research direction**, urging a shift from **land-price-based** to **accessibility-based** value capture and cooperative finance.
+
+**Points to Clarify**
+- Question: For the direction of my research scope, should the value capture concept stay as a policy implication from the MATSim results, or should I develop it further as an analytical framework connected to accessibility gain?
+- Regarding joint development, could the integration between the private Shuttle and the public transit system represent a form of micro joint development that minimizes fiscal burdens while improving system efficiency and producing collective social benefits?
+- Regarding this statement in Medda (2012):
+  > “These modest results may be due on the one hand, to the transport operators’ limited experience of land value estimation and on the other, to their unwillingness to engage in real estate and other business pursuits apart from the operation of the transport system” (Medda, 2012, p. 159)
+  Alternatively, should local governments and transport operators be equipped with a stronger business-oriented mindset to ensure financial sustainability?
