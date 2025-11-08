@@ -83,4 +83,4 @@ This paper explores how cities can finance transport infrastructure by capturing
 - Regarding joint development, could the integration between the private Shuttle and the public transit system represent a form of micro joint development that minimizes fiscal burdens while improving system efficiency and producing collective social benefits?
 - Regarding this statement in Medda (2012):
   > “These modest results may be due on the one hand, to the transport operators’ limited experience of land value estimation and on the other, to their unwillingness to engage in real estate and other business pursuits apart from the operation of the transport system” (Medda, 2012, p. 159)
-  Alternatively, should local governments and transport operators be equipped with a stronger business-oriented mindset to ensure financial sustainability?
+- Alternatively, should local governments and transport operators be equipped with a stronger business-oriented mindset to ensure financial sustainability?
