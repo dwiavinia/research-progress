@@ -1,21 +1,21 @@
 **LITERATURE REVIEW**
 Francesca Medda (2012) — *Land Value Capture Finance for Transport Accessibility*
-> *Journal of Transport Geography*, Vol. 25, pp. 154–161.  
-> **Focus:** Accessibility-based financing mechanisms for urban transport investments.
+- *Journal of Transport Geography*, Vol. 25, pp. 154–161.  
+- **Focus:** Accessibility-based financing mechanisms for urban transport investments.
 
 **Overview**
 This paper explores how cities can finance transport infrastructure by capturing part of the land value created through improved accessibility, a principle known as Land Value Capture (LVC).
 
 **Three main mechanisms:**
 1. Betterment Tax
-   > Levy on property owners benefiting from accessibility gain.
-   > Insight: Works in strong fiscal systems; may raise equity concerns 
+   - Levy on property owners benefiting from accessibility gain.
+   - Insight: Works in strong fiscal systems; may raise equity concerns 
 2. Accessibility Increment Contribution (AIC) 
-   > Earmarks future tax revenue from improved accessibility to fund current investments.
-   > Insight: Fits cities with clear accessibility growth potential 
+   - Earmarks future tax revenue from improved accessibility to fund current investments.
+   - Insight: Fits cities with clear accessibility growth potential 
 3. Joint Development
-   > Public–private cooperation for shared construction and profit.
-   > Insight: Ideal for suburban, non-fiscal contexts 
+   - Public–private cooperation for shared construction and profit.
+   - Insight: Ideal for suburban, non-fiscal contexts 
 
 **Key Concepts**
 - Accessibility Value:  
@@ -26,18 +26,18 @@ This paper explores how cities can finance transport infrastructure by capturing
 
 **Major Insights**
 1. Accessibility as Value Creation
-   >  Transport investments increase accessibility → generate urban value via time savings,   market access, and connectivity.
-   > However, effects can be uneven - some gain, some lose - so value capture must target actual beneficiaries, not assume uniform benefit.
+   - Transport investments increase accessibility → generate urban value via time savings, market access, and connectivity.
+   - However, effects can be uneven - some gain, some lose - so value capture must target actual beneficiaries, not assume uniform benefit.
 2. Context Sensitivity  
    >  “It is disingenuous to use a standardized model of land value capture finance replicated across cities.”
-   > Each city’s economic, legal, and spatial context demands its own model.
-   > Question : For suburban Japan, which approach is more feasible and realistic — fiscal taxation or non-fiscal, partnership-based LVC?
+   - Each city’s economic, legal, and spatial context demands its own model.
+   - Question : For suburban Japan, which approach is more feasible and realistic — fiscal taxation or non-fiscal, partnership-based LVC?
 3. Beyond Land Taxation  
-   >  User charges and property taxes are often regressive or insufficient.
-   > New forms — such as corporate, employer, or retail contributions — can distribute value more fairly among beneficiaries.
+   -  User charges and property taxes are often regressive or insufficient.
+   - New forms — such as corporate, employer, or retail contributions — can distribute value more fairly among beneficiaries.
 4. LVC as Collaborative Framework  
    > “The main potential benefit of LVC is its flexibility in adapting incentives and risk-sharing to project characteristics."
-   > Insight: Effective LVC depends on flexibility, stakeholder cooperation, and context alignment.
+   - Insight: Effective LVC depends on flexibility, stakeholder cooperation, and context alignment.
 
 **Stepwise Framework** 
 | Step | Description  | Notes for This Research |
@@ -75,4 +75,4 @@ This paper explores how cities can finance transport infrastructure by capturing
 
 **Key Quote**
 > “It is therefore important to develop research for evaluating the most efficient and sustainable LVC to finance transport investments based on accessibility.” — *Medda (2012)*
-> Insight: This paper serves both as **theoretical foundation** and **research direction**, urging a shift from **land-price-based** to **accessibility-based** value capture and cooperative finance.
+- Insight: This paper serves both as **theoretical foundation** and **research direction**, urging a shift from **land-price-based** to **accessibility-based** value capture and cooperative finance.
