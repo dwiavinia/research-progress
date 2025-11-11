@@ -20,6 +20,7 @@
      - The feed is compact and well-structured. Only one route exists, but it contains multiple shape variants that correspond to different directions (inbound/outbound) and minor alignment adjustments.
 
 2. Trip Duration Analysis
+   -----------------------
 | File | Trips | Mean (min) | Median (min) |
 |-------|--------|-------------|---------------|
 | `trip_duration_weekday.csv` | 56 | 31.5 | 30.0 |
