@@ -4,16 +4,16 @@
 1. GTFS Feed Structure Overview
    - **Feed:** `GTFS_Micron_shuttle`  
    - **Files detected:** 11 (agency, routes, trips, stops, stop_times, shapes, calendar, calendar_dates, fares, feed_info, translations)
-| Indicator | Value | Interpretation |
-|------------|--------|----------------|
-| Agencies | 1 (マイクロンメモリジャパン株式会社) | Single operator (private shuttle) |
-| Routes | 1 | One main service corridor |
-| Trips | 70 | Individual daily departures |
-| Stops | 29 | Total stops (dense spacing) |
-| Shapes | 6 | Variants of inbound/outbound route alignments |
-| Calendar | 2 (平日, 土曜・日曜・祝日) | Weekday vs holiday operation |
-| Calendar dates | 22 exceptions | Public holidays and national breaks |
-| Period covered | 2024-05-24 → 2025-03-31 | Full service year |
+| Indicator      | Value                             | Interpretation                                |
+|----------------|-----------------------------------|-----------------------------------------------|
+| Agencies       | 1 (マイクロンメモリジャパン株式会社) | Single operator (private shuttle)             |
+| Routes         | 1                                 | One main service corridor                     |
+| Trips          | 70                                | Individual daily departures                   | 
+| Stops          | 29                                | Total stops (dense spacing)                   |
+| Shapes         | 6                                 | Variants of inbound/outbound route alignments |
+| Calendar       | 2 (平日, 土曜・日曜・祝日)          | Weekday vs holiday operation                  |
+| Calendar dates | 22 exceptions                     | Public holidays and national breaks           |
+| Period covered | 2024-05-24 → 2025-03-31           | Full service year                             |
 
    - Structure insight  
      - The feed is compact and well-structured. Only one route exists, but it contains multiple shape variants that correspond to different directions (inbound/outbound) and minor alignment adjustments.
