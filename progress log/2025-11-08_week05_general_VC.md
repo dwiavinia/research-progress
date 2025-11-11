@@ -1,3 +1,14 @@
+- **Previous Discussion (Key points)**
+   - Integration requires not only technical modeling but also **new institutional frameworks**.
+   - Should consider how different actors (company, university, city) **coordinate and share responsibilities**.
+   - The concept of value capture shows how transport investment can raise nearby land or business value, and part of that gain can be reinvested to support the transport system. The main idea is that public transport alone is rarely profitable, but becomes more sustainable when connected to wider economic value or shared funding mechanisms.
+   - Several local examples show how shared funding could support more sustainable transport services. The Micron Shuttle is currently private but could benefit from coordination with public buses. Kurose University once operated its own bus service but found it costly, leading to discussions on cost-sharing with the city. Another example is Yume Town, a commercial center that benefits from bus routes and improved accessibility; such businesses could potentially contribute to transport development as part of a shared-benefit arrangement. These cases illustrate small-scale collaborations where public and private actors share responsibilities to maintain better mobility services.
+   - Idea of “New Style PPP”**
+     - Not a large-scale PPP project, but localized collaboration between city, business, and institution.
+     - Focused on service-level improvement and cost-sharing 
+   - Simulation–Policy Link: MATSim simulation should connect to **who benefits** and **how cost could be shared**.
+
+
 **LITERATURE REVIEW**
 Francesca Medda (2012) — *Land Value Capture Finance for Transport Accessibility*
 - *Journal of Transport Geography*, Vol. 25, pp. 154–161.  
