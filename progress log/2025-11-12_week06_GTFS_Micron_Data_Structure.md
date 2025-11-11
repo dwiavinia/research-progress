@@ -4,6 +4,7 @@
 1. GTFS Feed Structure Overview
    - **Feed:** `GTFS_Micron_shuttle`  
    - **Files detected:** 11 (agency, routes, trips, stops, stop_times, shapes, calendar, calendar_dates, fares, feed_info, translations)
+-------------
 | Indicator      | Value                             | Interpretation                                |
 |----------------|-----------------------------------|-----------------------------------------------|
 | Agencies       | 1 (マイクロンメモリジャパン株式会社) | Single operator (private shuttle)             |
