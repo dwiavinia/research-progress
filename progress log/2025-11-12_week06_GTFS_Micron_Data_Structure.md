@@ -92,3 +92,8 @@ Plots generated via `plot_micron_analysis.py`:
 - Practiced **Python workflow** using `gtfs-kit`, `pandas`, and `matplotlib`.  
 - Discovered **shift-based pattern** through right-skewed temporal distributions.  
 
+8. **UPCOMING LEARNING FOCUS**
+   - Literature review of value capture case studies in Hong Kong and Tokyo
+   - Literature review of cost-sharing schemes, especially joint development
+   - Learning about GTFS data for public transport
+   - Learning about  GTFS data for other private services
