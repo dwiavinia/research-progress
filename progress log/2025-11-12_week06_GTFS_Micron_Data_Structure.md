@@ -19,7 +19,8 @@
    - Structure insight  
      - The feed is compact and well-structured. Only one route exists, but it contains multiple shape variants that correspond to different directions (inbound/outbound) and minor alignment adjustments.
 
-2. Trip Duration Analysis
+2. Trip Duration 
+   - Trip duration represents how long the Micron Shuttle takes to complete a full route. By contrasting weekday and holiday services, we can see whether reduced frequency or schedule relaxation affects overall travel time.
    -----------------------
 | File | Trips | Mean (min) | Median (min) |
 |-------|--------|-------------|---------------|
@@ -34,12 +35,15 @@
      - Travel time consistency indicates efficient, predictable routing.
      - The system maintains similar journey times despite reduced service frequency, confirming stable operational and traffic conditions.
 
-3. Headway Analysis
+3. Headway 
+   - Headway shows how often the Micron Shuttle departs between trips. Comparing weekday and holiday patterns reveals how the service adjusts its frequency around factory shift times.
+---------------------------------
 | File | Trips | Median Headway | Mean Headway | Pattern |
 |-------|--------|----------------|---------------|----------|
 | `headway_weekday.csv` | 55 | 10 min | 17 min | High frequency (dense peak + long midday gap) |
 | `headway_holiday.csv` | 13 | 30 min | 69 min | Sparse service (few trips, long shift gap) |
-   - Findings
+
+   - Key Observation
      - Right-skewed distribution: many short intervals (5–15 min) and a few very long ones (300–500 min).  
      - Weekday: 2–3 shift clusters (morning & evening).  
      - Holiday: reduced operation (≈¼ weekday trips).
@@ -47,12 +51,15 @@
      - The skewed distribution proves a *shift-based timetable* — intensive service during worker transfers, long idle windows mid-day.
      - Frequency changes are temporal (schedule-driven), not congestion-driven.
 
-4. Travel Time (Inter-Stop) Analysis
+4. Travel Time
+   - Travel time shows how long the bus takes to move from one stop to the next. Comparing weekday and holiday results helps reveal whether route spacing or within-trip performance changes across schedules.  .
+-----------------------------------------
 | File | Segments | Mean (min) | Median (min) | Longest (min) |
 |-------|-----------|-------------|---------------|----------------|
 | `travel_times_weekday.csv` | 588 | 3.0 | 1.0 | 14.0 |
 | `travel_times_holiday.csv` | 158 | 2.9 | 1.0 | 14.0 |
-  - Findings
+
+  - Key Observation
     - Majority of segments take **1 min** → dense stop spacing (~400–700 m).  
     - A few segments (6–14 min) correspond to terminal–factory stretches.  
     - Distribution remains identical across weekdays & holidays.
@@ -61,6 +68,8 @@
     - Variations in operation are temporal rather than spatial.
 
 5. Combined Insights
+   - By comparing trip duration, headway, and travel time together, we can see how the Micron Shuttle balances consistent routes with flexible timing. The service remains spatially stable but adapts its frequency and timing to match worker shift demand.
+---------------------------------
 | Dimension | Indicator | Micron Shuttle Pattern |
 |------------|------------|------------------------|
 | **Temporal frequency** | Headway | 10–20 min (weekday) → 30–70 min (holiday) |
@@ -68,11 +77,7 @@
 | **Spatial spacing** | Inter-stop time | 1–3 min, uniform across service days |
 | **Overall behavior** |  | Consistent route; flexible timetable based on shift demand |
 
-6. Conclusion:  
-   - The Micron Shuttle’s GTFS data reveals a *temporally adaptive but spatially stable* service.
-   - Weekday and holiday differences arise from operational scheduling aligned with factory shifts — not from congestion or route changes.
-
-7. Visualization Outputs
+6. Visualization Outputs
 Plots generated via `plot_micron_analysis.py`:
 
 | Visualization | File Output | Description |
@@ -81,7 +86,7 @@ Plots generated via `plot_micron_analysis.py`:
 | Travel Time Histogram | `travel_times_weekday_hist.png` / `travel_times_holiday_hist.png` | Dense stop spacing, stable geometry |
 | Trip Duration Boxplot | `trip_duration_comparison.png` | Consistent travel time across services |
 
-8. Learning Reflections
+7. Learning Reflections
 - Understood **GTFS structure** (relationship between trips, stops, shapes, calendar).  
 - Learned to extract **temporal indicators** (duration, headway, travel time).  
 - Practiced **Python workflow** using `gtfs-kit`, `pandas`, and `matplotlib`.  
