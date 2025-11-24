@@ -217,68 +217,27 @@ Table: Hirodai-related Public Bus Fare
 | JRbus_1490550946_6_1  | JR Bus     | JRbus－広島国際大学－西条駅         | 広島国際大学       | 西条駅                 | NaN      | NaN      |
 | JRbus_1490550946_9    | JR Bus     | JRbus－乃美尾－西条駅              | 乃美尾           | 西条駅                 | 0        | 1180     |
 ----------------------------
-Geiyo routes: 160–540 JPY
 
-JR Bus routes: 160–470 JPY
-
-Interpretation
-
-Fare band differences reflect:
-
-Longer geographic reach of Geiyo routes
-
-More urban JR Bus corridors
-
-Industrial/loop routes covering long OD pairs
-
-7. Combined Insight – Micron vs Hirodai
-Dimension	Micron	Hirodai
-Spatial role	Industrial access hub	University commuter hub
-Network pattern	Long loops + short connectors	Dense overlapping feeders
-Visible distance	3–9 km	4–7 km
-Frequency	Shift-based	Multi-operator overlap
-Fare	160–630 JPY	160–540 / 470 JPY
-Route diversity	Low (4)	High (15)
-Overall Interpretation
-
-Micron relies on purpose-built industrial bus connectivity, while Hirodai functions as a multi-operator public transport hub offering broad regional accessibility.
+7. Combined Insight – Micron and Hirodai
+- Micron relies on purpose-built industrial bus connectivity, while Hirodai functions as a multi-operator public transport hub offering broad regional accessibility.
 
 8. Visualization Outputs
-
 From the map visualizations:
+- Each Micron route is drawn according to GTFS shapes, ensuring 1:1 alignment with metrics.
+- The Hirodai map displays 15 unique corridors with color-coded polylines matching the legend.
+- Distance calculations match the exact visible geometry drawn in the map.
 
-Each Micron route is drawn according to GTFS shapes, ensuring 1:1 alignment with metrics.
-
-The Hirodai map displays 15 unique corridors with color-coded polylines matching the legend.
-
-Distance calculations match the exact visible geometry drawn in the map.
-
-Why this matters?
-
-Clear visualization + synced metrics provides a defensible, reproducible analytical foundation for your thesis.
 
 9. Learning Reflections
-
-From this analysis, you learned:
-
-How GTFS routes/trips/shapes interact to form actual service patterns.
-
-How to filter GTFS spatially using POI radii.
-
-How distance, duration, headway, and fare integrate into accessibility metrics.
-
-How public bus GTFS differs from private shuttle GTFS.
-
-How to build map visualizations that sync with real GTFS geometry.
-
-How insights support future MATSim modeling.
+- How GTFS routes/trips/shapes interact to form actual service patterns.
+- How to filter GTFS spatially using POI radii.
+- How distance, duration, headway, and fare integrate into accessibility metrics.
+- How public bus GTFS differs from private shuttle GTFS.
+- How to build map visualizations that sync with real GTFS geometry.
+- How insights support future MATSim modeling.
 
 10. Upcoming Focus
-
-Integrating public bus + Micron Shuttle into MATSim network.
-
-Building accessibility indicators for Micron–Hirodai–Saijo corridor.
-
-Connecting accessibility improvements to value capture ideas (e.g., joint development).
-
-Structuring thesis narrative around accessibility, integration, and policy implications.
+- Integrating public bus + Micron Shuttle into MATSim network.
+- Building accessibility indicators for Micron–Hirodai–Saijo corridor.
+- Connecting accessibility improvements to value capture ideas (e.g., joint development).
+- Structuring around accessibility, integration, and policy implications.
