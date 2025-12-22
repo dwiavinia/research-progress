@@ -43,6 +43,15 @@ Previous Discussion:
   - If a significant share are local residents → public contribution is justified.
 - Research Direction Clarified
   - The study should move beyond a Micron-only case toward a general framework for private shuttle integration.
+  - This study uses private shuttle services as a benchmark to evaluate the conditions under which private transport can be converted into public services.
+  - The benchmark compares private-only, public-only, and integrated service scenarios.
+  - Micron is treated as one benchmark case, while other private shuttles provide comparative reference points.
+  - The benchmark assesses:
+    - Required user volume to sustain bus operations,
+    - The cost gap between service provision and fare revenue,
+    - The level of private contribution needed under a PPP scheme.
+  - Simulation results allow the benchmark to identify the optimum cost-sharing level between public and private sectors.
+  - Unlike land-based value capture, this benchmark focuses on operational costs and accessibility, making the framework simpler and transferable.
   - Potential scenarios include:
     - Simple conversion of private shuttles into public services
     - Full integration and optimization of public and private routes
