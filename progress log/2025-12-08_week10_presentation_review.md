@@ -2,7 +2,7 @@ Previous Discussion:
 - Service Frequency and Travel Time (Private vs Public)
   - The private Micron shuttle operates at high frequency, with peak headways of approximately 10–17 minutes, especially during morning and evening work periods.
   - Total observed services amount to 56 trips per day (both directions combined), which corresponds to 28 trips per direction, concentrated around commuting hours.
-  - The average travel time for the Micron shuttle is approximately 50 minutes, with a tight and regular schedule, particularly in peak periods.
+  - The average travel time for the Micron shuttle is approximately 30-35 minutes per direction, with a tight and regular schedule, particularly in peak periods.
   - Stops are highly concentrated near Saijo Station and Micron, with very few intermediate stops, reflecting an efficiency-oriented, employee-focused service design.
 - Spatial Characteristics of Stops
   - Most shuttle stops are located around Saijo Station, functioning as a collection point rather than a corridor service.
