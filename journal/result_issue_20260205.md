@@ -1,0 +1,66 @@
+**SUMMARY — MATSim Meeting (5 February 2026)**
+- Discussion on PT Stops, Access, and the “Teleport Problem”
+  - The discussion begins with an explanation of how users access PT stops, sometimes walking or cycling to reach them.
+  - It is noted that bicycle paths and PT stops are not always spatially close, which creates what is referred to as a “teleport problem.”
+  - This problem arises when access links between modes (walking, cycling, PT) are unrealistically short or disconnected.
+  - Many small issues of this type tend to appear repeatedly when running different simulation scenarios.
+- Parameter Adjustments and Model Mechanisms
+  - It is explained that small parameter changes, such as distance thresholds for merging stops or access links, are frequently adjusted.
+  - These changes are often made iteratively as new problems emerge in each simulation run.
+  - For some scenarios, especially those used in WCTR-related work, bus capacity was set to unlimited.
+  - Although unlimited capacity is not realistic in principle, it was considered acceptable in this context because buses in Higashi-Hiroshima are rarely crowded.
+  - These parameter and mechanism changes are the reason newer simulation files differ from older ones.
+- Consistency with Existing Simulation Versions
+  - Using older versions of the model may lead to results that are not fully consistent with current reference simulations.
+  - Updating parameters helps keep results aligned with simulations run by other researchers.
+  - The purpose of these changes is not to perfect realism but to maintain comparability and stability.
+- Population Synthesis Discussion
+  - The population synthesis process has been run multiple times, and the current total population number has already been accepted.
+  - Adjustments to the code may require changes in other parameters, but the total population size should remain consistent.
+  - There is uncertainty about how facilities and buildings are selected for population assignment.
+  - It is questioned whether population distribution is based on actual building distributions or a limited subset of facilities.
+- Guidance on Output Analysis
+  - When analyzing simulation outputs, the first priority should be checking the population.
+  - After that, PT-related outputs should be examined.
+  - Trip-level information is highlighted as an important output to review.
+  - If time allows, network visualization is also recommended to support interpretation.
+- Focus of Analysis in This Research
+  - The discussion clarifies that the main analytical focus is on public transport.
+  - The primary interests are:
+    - PT travel time,
+    - PT stop usage,
+    - PT ridership and boarding behavior,
+    - trip and network changes.
+    - Residential location accuracy is considered secondary to PT-related outcomes.
+  - Simulation Stability and Iterations
+    - The importance of checking simulation stability through iteration graphs is discussed.
+    - Running around 50 iterations is suggested as a benchmark to assess stability.
+    - Stability is evaluated by observing whether scores converge.
+    - Warnings during simulation runs are considered normal and acceptable.
+    - The key concern is avoiding errors that stop the simulation entirely.
+  - Closing Remarks
+    - The discussion concludes with encouragement and positive feedback on progress.
+    - The next step is to try running a new simulation using updated settings.
+    - There is expressed interest in seeing the next set of results.
+
+**REVIEW — Research-Relevant Insights (From This Meeting Only)**
+- Model Sensitivity Is an Inherent Issue
+  - The discussion highlights that MATSim simulations are sensitive to small parameter and mechanism changes.
+  - Repeated adjustment is a normal part of the modeling process rather than an exception.
+  - This implies that transparency about parameter settings is critical for result interpretation.
+- Simplifications Are Context-Dependent
+  - Setting bus capacity to unlimited is acknowledged as a simplification.
+  - In low-demand contexts, such simplifications are considered reasonable if they reflect observed conditions.
+  - This reinforces the idea that realism is balanced against stability and interpretability.
+- Population Size Matters More Than Exact Spatial Detail
+  - The discussion emphasizes that total population numbers are more critical than perfect spatial allocation. (?)
+  - As long as population size is correct, PT-focused analysis can proceed.
+  - This justifies prioritizing demand magnitude over fine-grained residential distribution for this study.
+- Output Interpretation Should Follow a Clear Order
+  - Population verification should come first.
+  - PT-related outputs should be examined before network-level details.
+  - This establishes a clear analytical workflow for future simulation analysis.
+- Stability Is More Important Than Eliminating All Warnings
+  - Simulation warnings are expected and tolerated.
+  - The absence of fatal errors and convergence of scores are the main indicators of a successful run.
+  - This provides a practical criterion for deciding when results are usable.
