@@ -1,0 +1,133 @@
+Learn This!! From GPT!
+
+- Folder & input yang dipakai (Data sources)
+  - Inputs (fixed):
+    - household_weights.csv
+      - surveyed households (N=5,393) + weights + attributes (termasuk indicator Micron household/worker kalau ada)
+    - survey_trips.csv / trip-chain source (sesuai notebook kamu)
+      - person-level trip chain (activities, times, purpose, origin zone, destination zone, etc.)
+    - buildings.csv / building inventory
+      - building id (Bid), geometry/coord, building type (residential/work/edu/other), attractiveness score (atau proxy)
+    - zones.shp / zones.geojson (optional but recommended)
+      - polygon zona untuk sampling fallback dalam zona
+    - micron_area.geojson or micron_gates.csv (recommended)
+      - polygon area Micron atau beberapa gate points untuk tujuan kerja Micron
+  - Outputs (to MATSim):
+    - Trips_Data_Scattering_Weekday1.csv (final expanded + assigned trips)
+    - population.xml.gz (MATSim population)
+    - population_with_attributes.xml.gz (setelah carAvail & hasLicense)
+- Step A — Reweight households (Micron 5000 target)
+  - Script: adjust_household_weights.py
+  - Input:
+    - household_weights.csv
+  - Process:
+    - Multiply weight/probability for “Micron households” by factor (e.g., 2.333x)
+    - Renormalize weights so sampling probability sums to 1
+    - Save adjusted weights for reproducibility
+  - Output:
+    - household_weights_adjusted.csv
+  - Next step: sampling + expansion using adjusted weights
+- Step B — Expand population to ~240K (with replacement)
+  - Script: expand_population_with_replacement.py
+    - (Ini versi “scripted” dari bagian expand di notebook, sebelum scattering)
+  - Input:
+    - household_weights_adjusted.csv
+    - survey_trips.csv (trip chains)
+  - Process:
+    - Sample N_households = 84,675 households with replacement using adjusted weights
+    - For each sampled household:
+      - replicate its person trip-chains
+      - generate expanded PID with suffix: pid_original + "_" + replicate_index
+    - Produce a long-form trips table (one row per trip-leg or per activity transition, sesuai format CSV kamu)
+  - Output:
+    - Trips_Expanded_Weekday1.csv (≈240K expanded persons, before building assignment)
+  - Next step: building/facility assignment (scattering)
+- Step C — Building scattering / facility assignment (NO agent loss)
+  - Script: assign_buildings_scattering.py
+    - (Ini step yang perlu kamu “perbaiki” karena selama ini drop agent terjadi di sini.)
+  - Input:
+    - Trips_Expanded_Weekday1.csv
+    - buildings.csv
+    - zones.geojson (optional but recommended)
+    - micron_gates.csv or micron_area.geojson (recommended)
+  - Core requirement:
+    - Never drop agents when building assignment fails.
+    - Use constrained fallback + logging.
+  - Process:
+    - Build candidate pools
+      - Create lookup tables:
+        - residential_buildings_by_zone
+        - work_buildings_by_zone
+        - edu_buildings_by_zone
+        - other_buildings_by_zone
+      - Each pool can be sampled with probability ∝ attractiveness (or uniform if none)
+    - Assign Origin building (O_Bid)
+      - For each trip/activity origin:
+        - Try primary assignment rule (e.g., based on purpose/home):
+          - If origin is “home” → choose from residential buildings in origin zone
+          - Else → choose from compatible type in origin zone
+        - If no candidates / failure:
+          - fallback to:
+            - nearest compatible building in that zone (or nearest across neighboring zones)
+            - if still none: sample random point in zone polygon and map to nearest building
+        - Record:
+          - O_assign_method = primary / fallback_zone / fallback_nearest / fallback_random_point
+    - Assign Destination building (D_Bid)
+      - For each trip/activity destination:
+        - If person is Micron worker and destination purpose is “work at Micron”:
+          - assign to micron_gate_id (multi-gate) OR random point inside Micron polygon
+          - set D_assign_method = micron_gate
+        - Else:
+          - choose from compatible pool in destination zone
+          - fallback similarly if empty
+        - Record:
+          - D_assign_method
+    - Validation & metrics
+      - Ensure every row has non-null:
+        - O_Bid, D_Bid, and coordinates for MATSim facility mapping
+      - Produce summary stats:
+        - % fallback origins, % fallback destinations
+        - fallback rate by purpose
+        - fallback rate for Micron workers (should be near 0 if Micron gates exist)
+    - Output:
+      - Trips_Data_Scattering_Weekday1.csv (≈240K persons preserved, all O/D assigned)
+      - scattering_quality_report.csv (metrics for methodology)
+    - Next step: MATSim population generation
+  - Step D — Convert CSV to MATSim population XML
+    - Script: DemandPopulationGenerationMicron.java (atau DemandPopulationGeneration.java)
+    - Input:
+      - Trips_Data_Scattering_Weekday1.csv
+    - Process:
+      - Parse trips per PID
+      - Create MATSim Person + Plan
+      - Create activities with coordinates/facility ids (from building assignment)
+      - Write compressed output
+    - Output:
+      - population.xml.gz
+    - Next step: add car/license attributes
+  - Step E — Add carAvail & hasLicense attributes
+    - Script: add_car_license_attributes.py
+    - Input:
+      - population.xml.gz
+      - (optional) household/person attributes mapping file kalau needed
+    - Process:
+      - Add person attributes:
+      - carAvail (true/false or categorical)
+      - hasLicense (true/false)
+      - Save new population file
+    - Output:
+      - population_with_attributes.xml.gz
+    - Next step: run MATSim scenarios (baseline / 1D / etc.)
+- Minimal “run order” yang kamu tinggal eksekusi
+  - adjust_household_weights.py → household_weights_adjusted.csv
+  - expand_population_with_replacement.py → Trips_Expanded_Weekday1.csv
+  - assign_buildings_scattering.py → Trips_Data_Scattering_Weekday1.csv (+ quality report)
+  - DemandPopulationGenerationMicron.java → population.xml.gz
+  - add_car_license_attributes.py → population_with_attributes.xml.gz
+- Catatan penting (yang bisa kamu tulis di metodologi)
+  - Expansion step menjaga total demand (~240K) dan macro OD.
+  - Assignment step ditingkatkan agar:
+    - tidak ada silent agent loss,
+    - OD point-level realistis untuk akses transit,
+
+dan keterbatasan facility selection dimitigasi lewat constrained fallback + logging.
