@@ -60,61 +60,27 @@
 **Stage 4 — Population Generation (Java Application)**
 - This step is described as the most important stage in demand generation.
 - It is executed through a Java-based population generation application.
-Inputs
+- Inputs
+  - Trip data that passed the building assignment,
+  - household weights,
+  - timing information.
+- Output: population.xml.gz
+- This file contains:
+  - agents,
+  - activities (e.g., home, work),
+  - travel plans.
+- Important implication: Agents removed in Stage 3 will not appear in this file.
 
-Trip data that passed the building assignment,
+**Stage 5 — Population Used in MATSim**
+- The population.xml.gz file is referenced in the config.xml.
+- MATSim only reads the agents contained in this file, not the original survey population.
+- Result: The effective population entering the simulation may be 144,000 agents instead of 240,000.
 
-household weights,
-
-timing information.
-
-Output
-
-population.xml.gz
-
-This file contains:
-
-agents,
-
-activities (e.g., home, work),
-
-travel plans.
-
-Main output file
-
-population.xml.gz — this is the file used directly in MATSim.
-
-Important implication
-
-Agents removed in Stage 3 will not appear in this file.
-
-Stage 5 — Population Used in MATSim
-What is explained
-
-The population.xml.gz file is referenced in the config.xml.
-
-MATSim only reads:
-
-the agents contained in this file,
-
-not the original survey population.
-
-Result
-
-The effective population entering the simulation may be 144,000 agents instead of 240,000.
-
-Chronological Summary (Very Brief)
-
-Trip diary (raw survey data)
-
-Weighting and expansion → ~240,000 agents
-
-Building assignment
-
-trips without valid origin or destination buildings are removed
-
-Population generation (Java)
-
-population.xml.gz (effective population)
-
-MATSim simulation
+**Chronological Summary**
+- Trip diary (raw survey data)
+- Weighting and expansion → ~240,000 agents
+- Building assignment
+  - trips without valid origin or destination buildings are removed
+- Population generation (Java)
+- population.xml.gz (effective population)
+- MATSim simulation
