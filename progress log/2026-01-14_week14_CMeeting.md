@@ -3,7 +3,7 @@
 - Do i need learning about Java Class use for converting network and GTFS consolidated?
 - Converting GTFS Private with pt2 matsim (?) or manually
 - Running simulation with actual data, which are:
-  - population (approx 190.000)
+  - population (approx 240.000)
   - network
   - GTFS consolidated
   - GTFS Private
