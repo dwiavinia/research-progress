@@ -1,0 +1,97 @@
+**Summary**
+- Data Size, Compression, and File Handling
+  - The session begins with practical issues related to large file sizes.
+  - Simulation outputs and intermediate data are often compressed and must be unzipped locally before use.
+  - Even after unzipping, files may still be large, but this is considered normal for MATSim projects.
+  - File handling and storage are emphasized as a practical challenge rather than a modeling issue.
+- It is noted that:
+  - service rules are already encoded in GTFS,
+  - future scenarios can be constructed by modifying or reinterpreting existing services.
+- The discussion implies that scenario building relies on assumptions, not on future GTFS data availability.
+- Project Scale and Division of Work
+  - The MATSim project is described as large and complex, requiring:
+    - multiple contributors,
+    - division of tasks across different components.
+  - Different responsibilities are mentioned, such as:
+    - operations,
+    - construction,
+    - monitoring.
+  - Because only a few people fully understand the entire workflow, code organization and file management are critical.
+- Importance of Preprocessing
+  - Preprocessing is repeatedly emphasized as the most important and time-consuming part of the workflow.
+  - Key preprocessing components include:
+    - facility selection,
+    - GTFS data preparation and consolidation,
+    - network preparation.
+  - The session highlights that:
+    - preprocessing errors are difficult to detect,
+    - understanding preprocessing often requires examining files one by one over long periods.
+- Facility Selection as an Identified Weak Point
+  - It is explicitly stated that:
+    - the current facility selection process is not very sophisticated,
+    - improvements are necessary.
+  - Facility selection involves:
+    - multiple filters,
+    - non-transparent logic that is difficult to trace.
+  - At present, no one can easily identify or explain the full logic without careful manual inspection.
+- GTFS Data Consolidation Challenges
+  - GTFS data consolidation is described as a major bottleneck.
+  - Errors are not mainly due to file format differences, but due to:
+    - inconsistencies in content,
+    - different conventions used by different operators.
+  - Multiple GTFS datasets may need to be:
+    - compared,
+    - merged,
+    - re-consolidated.
+  - Only a subset of scenarios currently works correctly; others remain unresolved due to GTFS consistency issues.
+- Learning Strategy for GTFS and MATSim
+  - It is suggested that:
+    - beginners should first practice with simpler GTFS datasets from other cities or countries,
+    - complex project-specific GTFS data should be handled later.
+  - Running GTFS-to-MATSim conversion without errors is described as a major milestone.
+  - A large portion of development time is spent fighting errors, which is considered normal.
+- GitHub Usage Rules
+  - Clear rules are given regarding GitHub usage:
+    - users should clone the repository only,
+    - pushing or committing changes is strongly discouraged.
+  - Accidental pushes can alter the shared project and create confusion.
+  - Local experimentation should be done on cloned copies without modifying the central repository.
+
+**REVIEW — Research Insights (From This Session Only)**
+- Preprocessing Dominates the Modeling Effort
+  - The session reinforces that MATSim modeling effort is concentrated in:
+    - preprocessing,
+    - data cleaning,
+    - consolidation.
+  - Simulation execution itself is relatively straightforward once preprocessing is complete.
+- Facility Selection Is a Known Limitation
+  - Facility selection is explicitly acknowledged as:
+    - underdeveloped,
+    - difficult to trace,
+    - and in need of improvement.
+  - This implies that:
+    - population–facility relationships are not fully transparent,
+    - spatial accuracy may be compromised at the facility level.
+- GTFS Data Is a Structural Source of Uncertainty
+  - GTFS inconsistency across operators is identified as a persistent issue.
+  - Even after consolidation, GTFS data may remain problematic.
+  - This highlights that:
+    - public transport representation quality depends strongly on GTFS data quality,
+    - errors can block scenario development entirely.
+- Future Scenarios Are Assumption-Driven
+  - The lack of future GTFS data means that long-term scenarios (e.g., 2040) rely on:
+    - reinterpretation of existing services,
+    - rule-based assumptions rather than observed data.
+  - This introduces an implicit modeling uncertainty that must be acknowledged.
+- Complexity Creates Knowledge Concentration
+  - Only a small number of people fully understand the complete pipeline.
+  - This concentration of knowledge increases:
+    - the risk of misinterpretation,
+    - dependence on informal explanations.
+  - Clear documentation and modular understanding become critical for reproducibility.
+- Practical Constraints Shape the Workflow
+  - File size, storage limits, error frequency, and collaboration rules strongly shape how MATSim projects are conducted.
+  - These constraints are not peripheral; they directly influence:
+    - what can be tested,
+    - how fast scenarios can be developed,
+    - and who can meaningfully contribute.
