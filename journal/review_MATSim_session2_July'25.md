@@ -1,0 +1,101 @@
+**Summary**
+- Transit Schedule–Network Mapping Process
+  - This session explains the process of mapping the transit schedule to the road network using the public transit mapper.
+  - The main inputs for this stage are:
+    - the previously prepared network file,
+    - the transit schedule converted from GTFS (type 1),
+    - an XML configuration file for the mapping process.
+  - After the mapping configuration is completed, the process is executed using the Java public transit mapper.
+  - The output of this step is a network-mapped transit schedule (type 2), which is ready to be used in the simulation.
+  - This step marks the completion of network and transit preparation.
+- Population Data Preparation
+  - The population data originates from older data sources (approximately 10 years old).
+  - This data is then projected to represent:
+    - conditions in the year 2040,
+    - both weekday and weekend trips.
+  - The preparation process involves multiple steps, including:
+    - merging various datasets,
+    - preprocessing trip diary data,
+    - using Python and R scripts.
+  - One important step in this process is the application of building attractiveness and origin weighting.
+  - The final output is trip data in CSV format, which is then converted into population plans (XML.gz).
+- Demand Population Generation
+  - The main demand generation process is executed through a Java application for population generation.
+  - The main inputs include:
+    - trip diary data,
+    - household weights,
+    - trip data with time information.
+  - The output of this stage is the population plans that are directly used in MATSim.
+  - This population file is described as the most important file in the demand generation process.
+- Running the MATSim Simulation
+  - Once the network and population are ready, the simulation is run through medicine.java.
+  - Before running the simulation, configuration arguments must be set correctly, including:
+    - file locations,
+    - the configuration file to be used.
+  - The folder location itself does not have to be specific, but the paths specified in the arguments must be correct.
+  - Incorrect paths are noted as a common source of confusion.
+- Simulation Output Structure
+  - Simulation outputs are stored in a single folder containing:
+    - iteration folders (e.g., iteration 0 to 100 or more),
+    - statistical and result files.
+  - A higher number of iterations (e.g., 200) produces similar, though not identical, outputs.
+  - The output files are very large (hundreds of MB), therefore:
+    - they are not uploaded to GitHub,
+    - they are stored locally only.
+- Key Output Files
+  - The most important output files mentioned are:
+    - output_events (event-level),
+      - records events such as departure, arrival, activity start, and link entry.
+    - output_legs,
+      - stores information for each travel segment (walk, PT, walk),
+      - including travel time, waiting time, distance, transit route, and vehicle ID.
+    - output_trips,
+      - represents a complete trip per agent,
+      - and determines the main mode of travel.
+    - output_plans.
+      - stores multiple travel plans per agent,
+      - each agent has several plans with different scores,
+      - the plan with the highest score is selected.
+- Analysis and Visualization
+  - After the outputs are generated, descriptive statistical analysis can be performed.
+  - Visualization is possible using:
+    - specialized tools (e.g., SimWriter),
+    - GIS software such as QGIS or ArcGIS.
+  - SimWriter is still under development and is relatively difficult to use for users without a computer science background.
+  - Alternative visualization approaches can be performed using YAML files or GIS tools.
+- Data Management and Storage
+  - Simulation outputs are not uploaded to GitHub due to their large file sizes.
+  - Currently, the simulation results have only one local backup.
+  - There was discussion about possible alternatives, such as:
+    - creating shared accounts,
+    - using other methods to share simulation results.
+
+**Review — Research Insights (Based on This Session)**
+- Preprocessing Is More Complex Than the Simulation Itself
+  - This session shows that most of the work lies in:
+    - network preparation,
+    - population preparation,
+    - GTFS conversion and mapping.
+  - The MATSim simulation itself is only the final stage of a long pipeline.
+- Population Generation Is a Critical Step
+  - Demand population generation is the most crucial component because it:
+    - determines who travels,
+    - determines the number and patterns of trips.
+  - Errors or assumptions made at this stage directly affect all simulation results.
+- MATSim Outputs Are Multi-Level
+  - MATSim produces outputs at multiple levels:
+    - event-level,
+    - leg-level,
+    - trip-level,
+    - plan-level.
+  - The choice of which output files to analyze depends on:
+    - the type of analysis to be conducted,
+    - whether the focus is on individual behavior or system-level aggregation.
+- Analysis Requires Simplification
+  - Due to the size and complexity of the outputs, it is not realistic to analyze all files at once.
+  - Researchers need to carefully select:
+    - key indicators,
+    - levels of analysis that are relevant to the research questions.
+- Technical Limitations Are Part of the Workflow
+  - Limitations related to storage, visualization, and tool stability are a normal part of the MATSim workflow.
+  - This highlights that simulation results must always be interpreted together with the technical constraints under which they are produced.
