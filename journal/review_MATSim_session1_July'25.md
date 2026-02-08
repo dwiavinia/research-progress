@@ -1,0 +1,96 @@
+**Summary** 
+- Purpose of the Session
+  - The session introduces the MATSim project for the Higashi-Hiroshima case.
+  - The focus is on explaining how the case can be run locally using shared Java code and prepared datasets.
+  - The presentation aims to clarify the end-to-end workflow rather than research results.
+- Code Access and Project Structure
+  - The MATSim project is hosted in a private GitHub repository.
+  - Access requires being added as a collaborator.
+  - Due to file size limitations, not all data is stored on GitHub.
+  - Large datasets are shared separately via cloud storage (e.g., OneDrive or Dropbox).
+  - The GitHub version is sufficient to run example cases but not full-scale modifications without additional data.
+- Core Inputs Required for Running the Model
+  - Three main input categories are required:
+    - Population
+    - Road network
+    - Configuration file
+- These three components are essential to execute the MATSim application.
+  - Population data is generated through preprocessing of original survey data.
+  - The road network is prepared from shapefiles and converted into a network suitable for simulation.
+- Java Application and Configuration Handling
+  - The simulation is executed through a Java application within the project structure.
+  - Arguments for running different scenarios (e.g., baseline, BRT scenarios) are passed externally rather than hard-coded.
+  - This approach allows flexible switching between scenarios by changing configuration files.
+  - The configuration file controls:
+    - number of threads,
+    - network input,
+    - population plans,
+    - controller settings,
+    - iteration numbers,
+    - scoring parameters,
+    - strategy settings.
+- Iterations, Strategies, and Behavioral Parameters
+  - The example configuration uses 140 iterations.
+  - Agent plan memory size is set to five.
+  - Multiple strategies and scoring parameters are configured to control agent behavior.
+  - Parameters such as marginal utilities and monetary distance rates are explicitly adjustable.
+  - It is noted that changing these parameters can significantly alter simulation results.
+  - Parameter values are context-dependent and may differ across cities.
+- Road Network Preparation
+  - The road network is initially derived from shapefiles.
+  - Additional modifications are applied, such as:
+    - road network,
+    - introduction of BRT links for future scenarios (e.g., 2040).
+  - Network modification is conducted using external tools such as R or Python.
+  - The final network is stored as a mapped network compatible with MATSim.
+- Public Transport Data Preparation (GTFS)
+  - Public transport schedules are created from GTFS data.
+  - Standard GTFS files include multiple interconnected tables (agency, routes, trips, stops, stop_times, calendars).
+  - GTFS data originates from multiple operators and agencies.
+  - Each agency uses different GTFS, requiring GTFS consolidation.
+  - A Python-based consolidation process is used to standardize the datasets.
+- GTFS-to-MATSim Conversion Workflow
+  - After consolidation, GTFS data is converted using PT2MATSim tools.
+  - The GTFS-to-schedule conversion requires:
+    - GTFS input folder,
+    - target simulation day,
+    - coordinate projection,
+    - output schedule file,
+    - output vehicle file.
+  - Conversion produces:
+    - translated transit schedule,
+    - translated transit vehicles.
+  - Errors during conversion are common and usually stem from GTFS inconsistencies.
+  - These errors require iterative cleaning and correction.
+- Network and Schedule Mapping
+  - Converted transit schedules are not immediately usable.
+  - A second mapping step links:
+    - the translated transit schedule,
+    - the mapped road network.
+  - This step produces a network-mapped transit schedule, which is required for simulation.
+  - Only after this step are all necessary MATSim inputs completed.
+**Review — Research Insights Derived from This Session**
+- The MATSim Pipeline Is Highly Preprocessing-Driven
+  - The transcript highlights that simulation outcomes depend heavily on preprocessing steps.
+  - Population generation, network preparation, and GTFS consolidation occur before any simulation logic is applied.
+  - Errors or assumptions at these stages propagate directly into results.
+- Configuration Files Are Central to Model Behavior
+  - The configuration file functions as the main control layer of the simulation.
+  - Behavioral assumptions are encoded through parameter choices rather than code logic.
+  - This implies that transparency and documentation of configuration settings are critical for research credibility.
+- GTFS Consistency Is a Structural Bottleneck
+  - GTFS data heterogeneity across agencies creates recurring issues.
+  - Consolidation is not optional but a prerequisite for meaningful PT simulation.
+  - Many simulation errors are data-structure issues rather than modeling issues.
+- Network and Transit Integration Is a Multi-Step Process
+  - Transit schedules and road networks are prepared independently and only connected later.
+  - The need for explicit mapping underscores that spatial consistency cannot be assumed.
+  - This reinforces the importance of verifying intermediate outputs, not only final results.
+- Model Sensitivity Is Acknowledged, Not Eliminated
+  - The session explicitly notes that parameter changes can lead to different results.
+  - Rather than aiming for a single “correct” parameter set, the model is presented as adaptable.
+  - This supports the use of MATSim as an exploratory tool rather than a predictive one.
+- Practical Implication for Research Use
+  - The workflow emphasizes replicability and modularity over simplicity.
+  - Running scenarios requires careful alignment of population, network, and PT inputs.
+  - Research insight is derived not only from outputs but from understanding how inputs are constructed.
