@@ -69,6 +69,7 @@
     - the mapped road network.
   - This step produces a network-mapped transit schedule, which is required for simulation.
   - Only after this step are all necessary MATSim inputs completed.
+    
 **Review — Research Insights Derived from This Session**
 - The MATSim Pipeline Is Highly Preprocessing-Driven
   - The transcript highlights that simulation outcomes depend heavily on preprocessing steps.
